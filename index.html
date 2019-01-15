@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <title>应用下载</title>
+	    <meta charset="utf-8">
+	    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge" />
+	    <meta name="keywords" content="应用下载">
+	    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" type="text/css" href="./css/css.css">
+	</head>
+	<body>
+				<div id="main">
+			<div class="banner" id="banner">
+				<div class="banner-top">
+					<div class="title"><div class="text">应用下载</div></div>
+					<div class="banner-img-box">
+						<img src="./images/banner.jpg"/>
+					</div>
+					<div class="banner-down-box">
+						<a href="javascriopt:;" class="down-btn" onclick="download_ios()"><img class="icon" src="./images/IOS.png"/>iPhone</a>
+						<a href="javascriopt:;" class="down-btn android-btn" onclick="download_android()"><img class="icon" src="./images/Android.png"/>Android</a>
+					</div>
+					<div class="down-qrcode">
+						<img src="./images/2019_01_15_14_23_27xdgjj.png" alt="应用下载" />
+						<div class="lable">扫一扫下载安装</div>
+					</div>
+				</div>
+				<div class="banner-bottom">
+					<div class="text">应用评分</div>
+					<div class="score-box">
+						<span class="real_star star"></span>
+						<span class="real_star star"></span>
+						<span class="real_star star"></span>
+						<span class="real_star star"></span>
+						<span class="real_star star"></span>
+						<!-- <span class="empty_star star"></span> -->
+					</div>
+				</div>
+			</div>
+			<div class="content" id="content">
+				<div class="app_logo_box">
+					<img class="app_logo" src="./images/2019_01_15_14_23_272pgff.png"/><span class="app_name">应用下载</span>
+				</div>
+				<div class="app_details">
+					<h3 class="lable">应用信息</h3>
+					<div class="text">
+						用户可以发布自己小孩儿的涂鸦作品到我们的平台，让大家猜一猜小朋友画的是什么内容，答对者有积分奖励，可以去商城兑换礼品。					
+					</div>
+				</div>
+			</div>
+		</div>
+		<input type="hidden" name="origin_ios_url" id="origin_ios_url" value="https://itunes.apple.com/cn/app/id1041860593?mt=8" />
+		<input type="hidden" name="ios_url" id="ios_url" value="https://itunes.apple.com/cn/app/id1041860593?mt=8" />
+		<input type="hidden" name="origin_android_url" id="origin_android_url" value="" />
+		<input type="hidden" name="android_url" id="android_url" value="http://" />
+		<script type="text/javascript">
+			function download_ios(){
+				var origin_ios_url = document.getElementById('origin_ios_url').value;
+				var ios_url = document.getElementById('ios_url').value;
+				
+				if(origin_ios_url){
+					window.open(ios_url);
+				}else{
+					alert('该应用暂不支持苹果应用下载，请用安卓手机访问');
+				}
+			}
+			function download_android(){
+				var origin_android_url = document.getElementById('origin_android_url').value;
+				var android_url = document.getElementById('android_url').value;
+				
+				if(origin_android_url){
+					window.open(android_url);
+				}else{
+					alert('该应用暂不支持安卓应用下载，请用苹果手机访问');
+				}
+			}
+		</script>
+	</body>
+</html>
