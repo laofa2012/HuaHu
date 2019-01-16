@@ -77,19 +77,16 @@
     const android_btn = document.getElementsByClassName('down-btn')[1];
 
     // 判断是IOS还是Android
-    var u = navigator.userAgent;
-    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
-    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
-    if(isiOS) {
+    if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
         //ios系统输出
         open_ios();
         android_btn.style.display = 'none';
-    } else if(isAndroid) {
+    } else if(browser.versions.android) {
         //android系统输出
         download_android();
         ios_btn.style.display = 'none';
     }
-
+	
     function open_ios() {
         // 判断是不是微信浏览器
         var ua = navigator.userAgent.toLowerCase();
