@@ -48,7 +48,6 @@ Zepto(function($){
 
         // 下载IOS
         download_ios: function() {
-            alert(123); return;
             if(this.ios_url) {
                 window.location.href = this.ios_url;
             } else {
@@ -58,7 +57,6 @@ Zepto(function($){
 
         // 下载Android
         download_android: function() {
-            alert(456); return;
             if(this.android_url) {
                 window.location.href = this.android_url;
             } else {
