@@ -62,6 +62,7 @@
                 android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
                 iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者QQHD浏览器
                 iPad: u.indexOf('iPad') > -1, //是否iPad
+                wechat: u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger', //是否为微信应用
                 webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
             };
         }(),
@@ -89,8 +90,7 @@
 
     function open_ios() {
         // 判断是不是微信浏览器
-        var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+        if (browser.versions.wechat) {
             //微信打开
             download_ios();
         } else {
