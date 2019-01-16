@@ -89,14 +89,14 @@
     function open_ios() {
         // 是否在safari打开
         if (browser.versions.webApp) {
-            var ifr = document.createElement("iframe");
-            ifr.src = "cube://?a=2&b=4";
-            ifr.style.display = "none";
-            document.body.appendChild(ifr);
-            window.setTimeout(function(){
-                document.body.removeChild(ifr);
-                download_ios();
-            }, 2000);
+            var loadDateTime = new Date();
+            setTimeout(function () {
+                var timeOutDateTime = new Date();
+                if (!loadDateTime || timeOutDateTime - loadDateTime < 1210) {
+                    download_ios();
+                }
+            }, 1200);
+            window.location.href = 'cube://?a=2&b=4';
         } else {
             download_ios();
         }
@@ -104,7 +104,7 @@
 
     function download_ios(){
         if(ios_url){
-            window.location.href = ios_url;
+            window.open(ios_url);
         }else{
             alert('该应用暂不支持苹果用户下载，请用安卓手机访问');
         }
@@ -112,7 +112,7 @@
 
     function download_android(){
         if(android_url){
-            window.location.href = android_url;
+            window.open(android_url);
         }else{
             alert('该应用暂不支持安卓用户下载，请用苹果手机访问');
         }
