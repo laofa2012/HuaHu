@@ -97,14 +97,13 @@
                 }
             }, 11200);
             window.location.href = 'cube://?a=2&b=4';
-			// window.open('cube://?a=2&b=4');
         } else {
             download_ios();
         }
     }
 
     function download_ios() {
-        window.open('cube://?a=2&b=4');
+        window.location.href = 'cube://?a=2&b=4';
         return;
         if(ios_url){
             window.location.href = ios_url;
