@@ -39,13 +39,21 @@ html, body {
   position: absolute;
   top: 0;
   left: 0;
-  width: 110%;
+  width: 100%;
   z-index: -1;
 }
 
-.banner img {
+.banner .background {
   display: inline-block;
-  width:100%;
+  width:110%;
+}
+
+.ios-open-tips {
+  width: 150px;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 10px;
 }
 
 .app-logo {
