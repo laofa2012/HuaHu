@@ -1,123 +1,72 @@
 
 Zepto(function($){
-  var app = {
-    init: function() {
-      this.$btnMenu = $('.btn-menu');
-      this.$btnMenuImg = $('.btn-menu img');
-      this.$menuList = $('.menu-list');
-      this.$menuListItem = $('.menu-list li');
-      this.$container = $('.content');
+    const app = {
+        init: function () {
+            // 参数
+            this.guess = $.getUrlParam('guess');
 
-      // 下面留白
-      $('.patent-copyright').css('height', ($(window).height() - 125) + 'px');
+            // 地址
+            this.ios_url = $('#ios_url').value;
+            this.android_url = $('#android_url').value;
 
-      // 参数
-      this.pageItem = $.getUrlParam('item');
-      // 会员注册协议
-      if (this.pageItem === 'agreement') {
-        app.moveToAgreement();
-      }
-      // 版权和专利
-      else if (this.pageItem === 'patentCopyright') {
-        app.moveToPatentCopyright();
-      }
-      // // 返回按钮
-      // else if (this.pageItem === 'back') {
-      //   var backBtn = $('#back-to-url');
-      //   backBtn.css('display', 'block');
-      //   backBtn.load('../component/close.html');
-      // }
+            // 系统
+            const os = $.os;
 
-      this.bindEvent();
-    },
+            // 按钮
+            const ios_btn = $('.down-btn')[0];
+            const android_btn = $('.down-btn')[1];
 
-    /**
-     * 绑定回调事件
-     */
-    bindEvent: function() {
+            // 按钮绑定事件
+            ios_btn.on('click', app.download_ios);
+            android_btn.on('click', app.download_android);
 
-      // 会员注册协议
-      $('.menu-item-agreement').on('click', function () {
-        app.moveToAgreement();
-      });
+            // 判断是IOS还是Android
+            if (os.ios) {
+                android_btn.css('display', 'none');
+                app.open_ios();
+            } else if (os.android) {
+                ios_btn.css('display', 'none');
+                app.download_android();
+            }
+        },
 
-      // 版权和专利
-      $('.menu-item-patent-copyright').on('click', function () {
-        app.moveToPatentCopyright();
-      });
+        // 是否是微信网页
+        isWechatWebSite: function() {
+            var u = navigator.userAgent;
+            return u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
+        },
 
-      // 返回上一页
-      $('#back-to-url').on('click', function () {
-        app.backToUrl();
-      });
+        // IOS
+        open_ios: function() {
+            // 判断是不是微信浏览器
+            if (app.isWechatWebSite) {
+                app.download_ios();
+            } else {
+                window.location.href = 'huahu://?guess=' + this.guess;
+            }
+        },
 
-      // Menu 展开与闭合
-      this.$menuListItem.on('click', app.menuListShowOrHidden);
-      this.$btnMenu.on('click', app.menuListShowOrHidden);
-    },
+        // 下载IOS
+        download_ios: function() {
+            alert(123); return;
+            if(this.ios_url) {
+                window.location.href = this.ios_url;
+            } else {
+                alert('该应用暂不支持苹果用户下载，请用安卓手机访问');
+            }
+        },
 
-    /**
-     * 返回Url
-     */
-    backToUrl: function() {
-      window.history.back();
-      // window.history.go(-1);
-    },
-
-    /**
-     * Menu 展开与闭合
-     */
-    menuListShowOrHidden: function() {
-      // console.log('click:' + app.$menuList.height());
-
-      if (app.$menuList.height() == 0) {
-        app.$btnMenuImg.attr('src', './images/menu-cancel.jpg');
-
-        app.$btnMenu.animate({
-          rotateZ: '-90deg'
-        }, 300);
-
-        app.$menuList.animate({
-          height: '120px'
-        }, 300);
-
-        app.$container.animate({
-          marginTop: '180px'
-        }, 300);
-      }
-      else {
-        app.$btnMenuImg.attr('src', './images/menu-list.jpg');
-
-        app.$btnMenu.animate({
-          rotateZ: '0deg'
-        }, 300);
-
-        app.$menuList.animate({
-          height: 0
-        }, 300);
-
-        app.$container.animate({
-          marginTop: '60px'
-        }, 300);
-      }
-    },
-
-    /**
-     * 滚动到，会员注册协议
-     */
-    moveToAgreement: function() {
-      app.$container.scrollTop(0);
-    },
-
-    /**
-     * 滚动到，版权和专利
-     */
-    moveToPatentCopyright: function() {
-      app.$container.scrollTop($('.patent-copyright-title').offset().top + app.$container.scrollTop());
-    }
-  };
-
-  app.init();
+        // 下载Android
+        download_android: function() {
+            alert(456); return;
+            if(this.android_url) {
+                window.location.href = this.android_url;
+            } else {
+                alert('该应用暂不支持安卓用户下载，请用苹果手机访问');
+            }
+        },
+    };
+    app.init();
 });
 
 // 为Zepto扩展一个获取Url参数到函数
