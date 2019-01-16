@@ -89,13 +89,13 @@
 
     function open_ios() {
         // 判断是不是微信浏览器
-        var ua = navigator.userAgent.toLowerCase();
-        if(ua.match(/MicroMessenger/i)=="micromessenger") {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
             //微信打开
             download_ios();
         } else {
             //其他输出
-            window.location.href = 'cube://?a=2&b=4';
+            window.location.href = 'huahu://?a=2&b=4';
         }
     }
 
