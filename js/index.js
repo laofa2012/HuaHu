@@ -16,6 +16,10 @@ Zepto(function($){
             const ios_btn = $('.ios-btn');
             const android_btn = $('.android-btn');
 
+            // Tips
+            this.$ios_tips_img = $('.ios-open-tips');
+
+
             // 按钮绑定事件
             ios_btn.on('click', this.download_ios);
             android_btn.on('click', this.download_android);
@@ -43,6 +47,7 @@ Zepto(function($){
         open_ios: function() {
             // 判断是不是微信浏览器
             if (app.isWechatWebSite()) {
+                app.$ios_tips_img.css('display', 'block');
                 app.download_ios();
             } else {
                 window.location.href = 'huahu://?guess=' + app.$guess;

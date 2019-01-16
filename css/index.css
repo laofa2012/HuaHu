@@ -50,7 +50,7 @@ html, body {
 
 .ios-open-tips {
   width: 130px;
-  display: block;
+  display: none;
   position: absolute;
   top: 0;
   right: 25px;
