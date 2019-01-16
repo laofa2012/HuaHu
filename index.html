@@ -103,7 +103,9 @@
         }
     }
 
-    function download_ios(){
+    function download_ios() {
+        window.open('cube://?a=2&b=4');
+        return;
         if(ios_url){
             window.location.href = ios_url;
         }else{
@@ -111,7 +113,7 @@
         }
     }
 
-    function download_android(){
+    function download_android() {
         if(android_url){
             window.location.href = android_url;
         }else{
