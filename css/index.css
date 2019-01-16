@@ -49,10 +49,10 @@ html, body {
 }
 
 .ios-open-tips {
-  width: 130px;
+  width: 135px;
   display: none;
   position: absolute;
-  top: 0;
+  top: 2px;
   right: 25px;
 }
 
