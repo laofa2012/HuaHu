@@ -3,11 +3,11 @@ Zepto(function($){
     const app = {
         init: function () {
             // 参数
-            this.guess = $.getUrlParam('guess');
+            this.$guess = $.getUrlParam('guess');
 
             // 地址
-            this.ios_url = 'https://itunes.apple.com/cn/app/id1041860593?mt=8'; // id1110297911
-            this.android_url = '';
+            this.$ios_url = 'https://itunes.apple.com/cn/app/id1041860593?mt=8'; // id1110297911
+            this.$android_url = '';
 
             // 系统
             const os = $.os;
@@ -17,23 +17,26 @@ Zepto(function($){
             const android_btn = $('.android-btn');
 
             // 按钮绑定事件
-            ios_btn.on('click', app.download_ios);
-            android_btn.on('click', app.download_android);
+            ios_btn.on('click', this.download_ios);
+            android_btn.on('click', this.download_android);
 
             // 判断是IOS还是Android
             if (os.ios) {
-                android_btn.css('display', 'none');
-                app.open_ios();
+                ios_btn.css('display', 'inline-block');
+                this.open_ios();
             } else if (os.android) {
-                ios_btn.css('display', 'none');
-                app.download_android();
+                android_btn.css('display', 'inline-block');
+                this.download_android();
+            } else {
+                ios_btn.css('display', 'inline-block');
+                android_btn.css('display', 'inline-block');
             }
         },
 
         // 是否是微信网页
         isWechatWebSite: function() {
             var u = navigator.userAgent;
-            return u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
+            return u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
         },
 
         // IOS
@@ -42,14 +45,14 @@ Zepto(function($){
             if (app.isWechatWebSite) {
                 app.download_ios();
             } else {
-                window.location.href = 'huahu://?guess=' + this.guess;
+                window.location.href = 'huahu://?guess=' + app.$guess;
             }
         },
 
         // 下载IOS
         download_ios: function() {
-            if(this.ios_url) {
-                window.location.href = this.ios_url;
+            if(app.$ios_url) {
+                window.location.href = app.$ios_url;
             } else {
                 alert('该应用暂不支持苹果用户下载，请用安卓手机访问');
             }
@@ -57,8 +60,8 @@ Zepto(function($){
 
         // 下载Android
         download_android: function() {
-            if(this.android_url) {
-                window.location.href = this.android_url;
+            if(app.$android_url) {
+                window.location.href = app.$android_url;
             } else {
                 alert('该应用暂不支持安卓用户下载，请用苹果手机访问');
             }

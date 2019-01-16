@@ -67,7 +67,7 @@ html, body {
 }
 
 .down-btn {
-  display: inline-block;
+  display: none;
   width: 140px;
   height: 35px;
   line-height: 35px;
