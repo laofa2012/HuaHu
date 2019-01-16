@@ -44,8 +44,13 @@ Zepto(function($){
 
         // IOS
         open_ios: function() {
+            const u = navigator.userAgent;
+            const b = u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
+            alert(navigator.userAgent);
+            alert(u.toLowerCase().match(/MicroMessenger/i));
+
             // 判断是不是微信浏览器
-            if (app.isWechatWebSite()) {
+            if (b) {
                 app.download_ios();
             } else {
                 window.location.href = 'huahu://?guess=' + app.$guess;
