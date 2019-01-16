@@ -35,8 +35,11 @@ Zepto(function($){
 
         // 是否是微信网页
         isWechatWebSite: function() {
-            var u = navigator.userAgent;
-            return u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
+            const u = navigator.userAgent;
+            const b = u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
+            alert(navigator.userAgent);
+            alert(u.toLowerCase().match(/MicroMessenger/i));
+            return b;
         },
 
         // IOS
