@@ -37,8 +37,8 @@ Zepto(function($){
         isWechatWebSite: function() {
             const u = navigator.userAgent;
             const b = u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
-            // alert(navigator.userAgent);
-            // alert(u.toLowerCase().match(/MicroMessenger/i));
+            alert(navigator.userAgent);
+            alert(u.toLowerCase().match(/MicroMessenger/i));
             return b;
         },
 
