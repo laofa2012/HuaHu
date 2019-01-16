@@ -6,8 +6,8 @@ Zepto(function($){
             this.guess = $.getUrlParam('guess');
 
             // 地址
-            this.ios_url = $('#ios_url').value;
-            this.android_url = $('#android_url').value;
+            this.ios_url = 'https://itunes.apple.com/cn/app/id1041860593?mt=8'; // id1110297911
+            this.android_url = '';
 
             // 系统
             const os = $.os;
