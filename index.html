@@ -79,18 +79,17 @@
     // 判断是IOS还是Android
     if(browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
         //ios系统输出
-        open_ios();
         android_btn.style.display = 'none';
+        open_ios();
     } else if(browser.versions.android) {
         //android系统输出
-        download_android();
         ios_btn.style.display = 'none';
+        download_android();
     }
 
     function open_ios() {
         // 判断是不是微信浏览器
         var ua = window.navigator.userAgent.toLowerCase();
-        alert(ua);
         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
             //微信打开
             download_ios();
