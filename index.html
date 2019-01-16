@@ -104,7 +104,7 @@
 
     function download_ios(){
         if(ios_url){
-            window.open(ios_url);
+            window.location.href = ios_url;
         }else{
             alert('该应用暂不支持苹果用户下载，请用安卓手机访问');
         }
@@ -112,7 +112,7 @@
 
     function download_android(){
         if(android_url){
-            window.open(android_url);
+            window.location.href = android_url;
         }else{
             alert('该应用暂不支持安卓用户下载，请用苹果手机访问');
         }
