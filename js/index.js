@@ -35,21 +35,15 @@ Zepto(function($){
 
         // 是否是微信网页
         isWechatWebSite: function() {
-            const u = navigator.userAgent;
-            const b = u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
-            alert(navigator.userAgent);
-            alert(u.toLowerCase().match(/MicroMessenger/i));
+            const u = window.navigator.userAgent;
+            const b = u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
             return b;
         },
 
         // IOS
         open_ios: function() {
-            const u = window.navigator.userAgent;
-            const b = u.toLowerCase().match(/MicroMessenger/i) == 'micromessenger';
-            alert(u.toLowerCase().match(/MicroMessenger/i));
-
             // 判断是不是微信浏览器
-            if (b) {
+            if (app.isWechatWebSite()) {
                 app.download_ios();
             } else {
                 window.location.href = 'huahu://?guess=' + app.$guess;
