@@ -86,15 +86,15 @@
         download_android();
         ios_btn.style.display = 'none';
     }
-	
+
     function open_ios() {
         // 判断是不是微信浏览器
         var ua = navigator.userAgent.toLowerCase();
         if(ua.match(/MicroMessenger/i)=="micromessenger") {
-            //其他输出
-            open_ios();
-        } else {
             //微信打开
+            download_ios();
+        } else {
+            //其他输出
             window.location.href = 'cube://?a=2&b=4';
         }
     }
