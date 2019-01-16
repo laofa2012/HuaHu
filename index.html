@@ -78,12 +78,28 @@
 
     // 自动跳转
     if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
-        download_ios();
-        android_btn.style.display = "none";
+        open_ios();
+        android_btn.style.display = 'none';
     }
     else if (browser.versions.android) {
         download_android();
-        ios_btn.style.display = "none";
+        ios_btn.style.display = 'none';
+    }
+
+    function open_ios() {
+        // 是否在safari打开
+        if (browser.versions.webApp) {
+            var ifr = document.createElement("iframe");
+            ifr.src = "huahu://?a=2&b=4";
+            ifr.style.display = "none";
+            document.body.appendChild(ifr);
+            window.setTimeout(function(){
+                document.body.removeChild(ifr);
+                download_ios();
+            }, 2000);
+        } else {
+            download_ios();
+        }
     }
 
     function download_ios(){
