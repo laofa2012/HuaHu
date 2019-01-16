@@ -13,8 +13,8 @@ Zepto(function($){
             const os = $.os;
 
             // 按钮
-            const ios_btn = $('.down-btn')[0];
-            const android_btn = $('.down-btn')[1];
+            const ios_btn = $('.ios-btn');
+            const android_btn = $('.android-btn');
 
             // 按钮绑定事件
             ios_btn.on('click', app.download_ios);
