@@ -90,6 +90,7 @@
     function open_ios() {
         // 判断是不是微信浏览器
         var ua = window.navigator.userAgent.toLowerCase();
+        alert(ua);
         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
             //微信打开
             download_ios();
