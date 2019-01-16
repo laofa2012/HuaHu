@@ -37,15 +37,15 @@ Zepto(function($){
         isWechatWebSite: function() {
             const u = navigator.userAgent;
             const b = u.toLowerCase().match(/MicroMessenger/i) === 'micromessenger';
-            alert(navigator.userAgent);
-            alert(u.toLowerCase().match(/MicroMessenger/i));
+            // alert(navigator.userAgent);
+            // alert(u.toLowerCase().match(/MicroMessenger/i));
             return b;
         },
 
         // IOS
         open_ios: function() {
             // 判断是不是微信浏览器
-            if (app.isWechatWebSite) {
+            if (app.isWechatWebSite()) {
                 app.download_ios();
             } else {
                 window.location.href = 'huahu://?guess=' + app.$guess;
