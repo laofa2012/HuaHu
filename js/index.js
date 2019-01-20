@@ -51,9 +51,9 @@ Zepto(function($){
                 app.$ios_tips_img.css('display', 'block');
                 app.download_ios();
             } else {
-                if (!app.$guess) {
+                if (app.$guess) {
                     window.location.href = 'huahu://?guess=' + app.$guess;
-                } else if (!app.$prodoction) {
+                } else if (app.$prodoction) {
                     window.location.href = 'huahu://?prodoction=' + app.$prodoction;
                 }
             }
