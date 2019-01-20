@@ -4,6 +4,7 @@ Zepto(function($){
         init: function () {
             // 参数
             this.$guess = $.getUrlParam('guess');
+            this.$prodoction = $.getUrlParam('prodoction');
 
             // 地址
             this.$ios_url = 'https://itunes.apple.com/cn/app/id1041860593?mt=8'; // id1110297911
@@ -50,7 +51,11 @@ Zepto(function($){
                 app.$ios_tips_img.css('display', 'block');
                 app.download_ios();
             } else {
-                window.location.href = 'huahu://?guess=' + app.$guess;
+                if (!app.$guess) {
+                    window.location.href = 'huahu://?guess=' + app.$guess;
+                } else if (!app.$prodoction) {
+                    window.location.href = 'huahu://?prodoction=' + app.$prodoction;
+                }
             }
         },
 
