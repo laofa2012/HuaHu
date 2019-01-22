@@ -54,7 +54,7 @@ Zepto(function($){
                 if (app.$guess) {
                     window.location.href = 'huahu://?guess=' + app.$guess;
                 } else if (app.$production) {
-                    window.location.href = 'huahu://?prodoction=' + app.$production;
+                    window.location.href = 'huahu://?production=' + app.$production;
                 }
             }
         },
